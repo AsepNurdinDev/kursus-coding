@@ -11,13 +11,7 @@ export default function Profile() {
         className="overflow-hidden rounded-full border border-gray-300 shadow-inner"
       >
         <img
-          src="/images/profile.jpg"useCallback(
-            () => {
-              first
-            },
-            [second],
-          )
-          
+          src="/images/profile.jpg"
           alt="Profile"
           className="h-10 w-10 object-cover"
         />
