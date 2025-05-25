@@ -2,14 +2,13 @@ import Button from "../../components/Elements/Button";
 import Navbar from "../../components/Fragments/Navbar/Navbar";
 import CardsKelas from "../../components/Card/CardsKelas/CardsKelas";
 import Footer from "../../components/Fragments/Footer/Footer";
+import Profile from "../../components/Fragments/Profile/Profile";
 
 const CoursesPage = () => {
   return (
     <div>
       {/* Navbar */}
-      <Navbar>
-        
-      </Navbar>
+      <Navbar></Navbar>
 
       {/* Informasi */}
       <section className="bg-blue-100 lg:grid lg:place-content-center mt-4">

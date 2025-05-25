@@ -6,6 +6,8 @@ import LoginPage from "./pages/login.jsx";
 import RegisterPage from "./pages/Register.jsx";
 import HomePage from "./pages/Home";
 import CoursesPage from "./pages/Courses/CoursesPage.jsx";
+import Kelas from "./pages/Courses/Kelas/index.jsx";
+import Kelashtml from "./pages/Courses/kelasHTML/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
   {
     path: "/courses",
     element: <CoursesPage />,
+  },
+  {
+    path: "/kelas",
+    element: <Kelas />,
+  },
+  {
+    path: "/kelashtml",
+    element: <Kelashtml />,
   },
 ]);
 
