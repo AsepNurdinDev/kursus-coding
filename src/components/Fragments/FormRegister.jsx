@@ -6,80 +6,64 @@ import axios from "axios";
 const FormRegister = () => {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+    console.log("Submit data:", username, email, password);
+
     try {
-      const formData = {
-        fullname,
-        email,
-        password,
-        confirmPassword,
-      };
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
-        formData
-      );
-      console.log(response.data);
-      // redirect ke login
-    } catch (error) {
-      if (error.response) {
-        console.error("Gagal registrasi:", error.response.data.message);
+      const res = await fetch("http://localhost:5000/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password }),
+      });
+
+      const data = await res.json();
+      console.log("Server response:", data); // ✅ lihat isinya
+
+      if (res.ok) {
+        navigate("/login");
       } else {
-        console.error("Error:", error.message);
+        alert(data.msg || "Registrasi gagal");
       }
+    } catch (err) {
+      console.error("Fetch error:", err); // ✅ jika fetch-nya sendiri error
+      alert("Terjadi kesalahan saat mengirim data");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleRegister} className="space-y-4">
       <InputForm
-        label="Fullname"
-        name="fullname"
+        label="Username"
+        name="username"
         type="text"
-        placeholder="Enter your fullname"
-        value={formData.fullname}
-        onChange={handleChange}
+        placeholder="Enter your username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        required
       />
       <InputForm
         label="Email"
         name="email"
         type="email"
         placeholder="Enter your email"
-        value={formData.email}
-        onChange={handleChange}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
       />
       <InputForm
         label="Password"
         name="password"
         type="password"
         placeholder="Enter your password"
-        value={formData.password}
-        onChange={handleChange}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
       />
-      <InputForm
-        label="Confirm Password"
-        name="confirmPassword"
-        type="password"
-        placeholder="Confirm your password"
-        value={formData.confirmPassword}
-        onChange={handleChange}
-      />
-
       <button
         type="submit"
         className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 px-4 w-full rounded-lg transition duration-300"

@@ -32,8 +32,8 @@ const HomePage = () => {
   return (
     <div>
       <Navbar />
-      <section className="bg-white lg:grid lg:place-content-center mt-5">
-        <div className="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 md:grid md:grid-cols-2 md:items-center md:gap-4 lg:px-8 lg:py-32">
+      <section className="bg-white lg:grid lg:place-content-center px-2 mt-5">
+        <div className="mx-auto w-screen max-w-screen-xl px-8 py-16 sm:px-6 sm:py-24 md:grid md:grid-cols-2 md:items-center md:gap-4 lg:px-8 lg:py-32">
           <div className="max-w-prose text-left">
             <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
               Selamat datang di
@@ -88,7 +88,7 @@ const HomePage = () => {
             </button>
 
             {/* Tombol kanan */}
-            <bzutton
+            <button
               onClick={handleNext}
               className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-white shadow-lg hover:bg-gray-100 text-gray-800 p-2 rounded-full transition duration-300"
               aria-label="Next"
@@ -107,7 +107,7 @@ const HomePage = () => {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </bzutton>
+            </button>
           </div>
         </div>
       </section>

@@ -1,42 +1,79 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+  const logoLink = token ? "/courses" : "/";
+
+  const navItemsLoggedOut = ["Program", "Event", "Blog"];
+  const navItemsLoggedIn = [
+    "Kelas",
+    "Program",
+    "Diskusi",
+    "Event",
+    "Blog",
+    "Profile",
+  ];
+
+  const navItems = token ? navItemsLoggedIn : navItemsLoggedOut;
+
+  const generatePath = (label) => {
+    const lower = label.toLowerCase();
+    if (lower === "kelas") return "/kelas";
+    if (lower === "program") return "/courses"; // misalnya program adalah courses
+    if (lower === "profile") return "/profile"; // pastikan kamu punya halaman ini
+    return `/${lower}`;
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="text-blue-600 text-xl font-bold">
+          <Link to={logoLink} className="text-blue-600 text-xl font-bold">
             Acode
-          </a>
+          </Link>
 
           {/* Navigation (Desktop) */}
           <nav className="hidden md:flex items-center gap-6 text-lg font-semibold text-gray-700">
-            {["Kelas", "Program", "Diskusi", "Event", "Blog"].map((item) => (
-              <a
+            {navItems.map((item) => (
+              <Link
                 key={item}
-                href="#"
-                className="hover:text-blue-600 transition duration-200"
+                to={generatePath(item)}
+                className="hover:text-blue-600 transition duration-200 capitalize"
               >
                 {item}
-              </a>
+              </Link>
             ))}
 
-            {/* Tombol Login dan Register */}
-            <a
-              href="/login"
-              className="ml-2 rounded-md bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 transition"
-            >
-              Login
-            </a>
-            <a
-              href="/register"
-              className="ml-2 rounded-md bg-red-600 px-4 py-2 text-sm text-white hover:bg-red-700 transition"
-            >
-              Register
-            </a>
+            {token ? (
+              <button
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  window.location.href = "/login";
+                }}
+                className="ml-2 rounded-md bg-gray-800 px-4 py-2 text-sm text-white hover:bg-gray-900 transition"
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="ml-2 rounded-md bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 transition"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="ml-2 rounded-md bg-red-600 px-4 py-2 text-sm text-white hover:bg-red-700 transition"
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </nav>
 
           {/* Hamburger (Mobile) */}
@@ -66,30 +103,44 @@ export default function Header() {
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden mt-2 space-y-2 pb-4">
-            {["Kelas", "Program", "Diskusi", "Event", "Blog"].map((item) => (
-              <a
+            {navItems.map((item) => (
+              <Link
                 key={item}
-                href="#"
-                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                to={generatePath(item)}
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 capitalize"
               >
                 {item}
-              </a>
+              </Link>
             ))}
 
-            {/* Tombol Login dan Register (Mobile) */}
+            {/* Tombol Login / Register atau Logout */}
             <div className="px-4 pt-2 flex flex-col gap-2">
-              <a
-                href="/login"
-                className="hover:text-blue-600 bg-blue-600 rounded-md px-4 py-2 text-sm text-white hover:bg-blue-700 transition text-center"
-              >
-                Login
-              </a>
-              <a
-                href="/register"
-                className="rounded-md bg-red-600 px-4 py-2 text-sm text-white hover:bg-red-700 transition text-center"
-              >
-                Register
-              </a>
+              {token ? (
+                <button
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    window.location.href = "/login";
+                  }}
+                  className="hover:text-white bg-gray-800 rounded-md px-4 py-2 text-sm text-white hover:bg-gray-900 transition text-center"
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="hover:text-blue-600 bg-blue-600 rounded-md px-4 py-2 text-sm text-white hover:bg-blue-700 transition text-center"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="rounded-md bg-red-600 px-4 py-2 text-sm text-white hover:bg-red-700 transition text-center"
+                  >
+                    Register
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         )}

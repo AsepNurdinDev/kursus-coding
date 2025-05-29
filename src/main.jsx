@@ -8,6 +8,7 @@ import HomePage from "./pages/Home";
 import CoursesPage from "./pages/Courses/CoursesPage.jsx";
 import Kelas from "./pages/Courses/Kelas/index.jsx";
 import Kelashtml from "./pages/Courses/kelasHTML/index.jsx";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/courses",
-    element: <CoursesPage />,
+    element: (
+      <ProtectedRoute>
+        <CoursesPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/kelas",
@@ -34,6 +39,7 @@ const router = createBrowserRouter([
     path: "/kelashtml",
     element: <Kelashtml />,
   },
+
 ]);
 
 createRoot(document.getElementById("root")).render(
