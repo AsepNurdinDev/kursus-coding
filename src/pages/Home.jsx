@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Button from "../components/Elements/Button";
 import Footer from "../components/Fragments/Footer/Footer";
 import Navbar from "../components/Fragments/Navbar/Navbar";
@@ -10,6 +12,14 @@ const HomePage = () => {
     "/images/kursus4.png",
     "/images/kursus3.png",
   ];
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+  
 
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -35,13 +45,20 @@ const HomePage = () => {
       <section className="bg-white lg:grid lg:place-content-center px-2 mt-5">
         <div className="mx-auto w-screen max-w-screen-xl px-8 py-16 sm:px-6 sm:py-24 md:grid md:grid-cols-2 md:items-center md:gap-4 lg:px-8 lg:py-32">
           <div className="max-w-prose text-left">
-            <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+            <h1
+              data-aos="fade-right"
+              className="text-4xl font-bold text-gray-900 sm:text-5xl"
+            >
               Selamat datang di
               <strong className="text-blue-600"> Kursus </strong>
               Coding
             </h1>
 
-            <p className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed"
+            >
               Belajar coding dengan menyenangkan dan seru pastinya, ayo
               bergabung sekarang juga untuk belajar coding agar makin jago
               dibidang IT.
@@ -112,7 +129,7 @@ const HomePage = () => {
         </div>
       </section>
       {/* Card */}
-      
+
       <CardHome />
       <Footer />
     </div>

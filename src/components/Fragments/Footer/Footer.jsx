@@ -4,11 +4,19 @@ const Footer = () => {
       <footer className="bg-white">
         <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8 lg:pt-24">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-blue-600 sm:text-4xl">
+            <h2
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="text-3xl font-extrabold text-blue-600 sm:text-4xl"
+            >
               Ayo Bergabung Bersama Kami
             </h2>
 
-            <p className="mx-auto mt-4 max-w-sm text-gray-500">
+            <p
+              data-aos="fade-right"
+              data-aos-delay="200"
+              className="mx-auto mt-4 max-w-sm text-gray-500"
+            >
               Jadilah ahli coding yang handal dan siap menghadapi tantangan
               dunia digital. Bergabunglah dengan komunitas kami untuk belajar
             </p>
@@ -21,7 +29,11 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="mt-16 border-t border-gray-100 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="mt-16 border-t border-gray-100 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24"
+          >
             <ul className="flex flex-wrap justify-center gap-4 text-xs lg:justify-end">
               <li>
                 <a

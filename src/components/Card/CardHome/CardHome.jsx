@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import img1 from "/images/kursus3.png";
 import img2 from "/images/kursus4.png";
 import img3 from "/images/kursus2.png";
-import img5 from "/images/kursus3.png";
+import img5 from "/images/card1.png";
 
 const images = [img1, img2, img3, img5];
 
 const Carousel = () => {
   const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    }, []);
+    
 
   // Auto-slide every 3 seconds
   useEffect(() => {
@@ -30,12 +40,20 @@ const Carousel = () => {
       <div className="relative w-3/4 mx-auto mt-10">
         {/* Carousel wrapper */}
         <div className="max-w-prose text-left">
-          <h1 className="text-4xl font-bold text-blue-600 sm:text-5xl">
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="text-4xl font-bold text-blue-600 sm:text-5xl"
+          >
             Belajar coding di
             <strong className="text-blue-600"> Acode </strong>
             pastinya menyenangkan
           </h1>
-          <p className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
+          <p
+            data-aos="fade-right"
+            data-aos-delay="200"
+            className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed"
+          >
             #Ayo bergabung sekarang juga untuk belajar coding agar makin jago
             dibidang IT dan dapatkan berbagai materi menarik yang pastinya mudah
             dipahami.
@@ -50,7 +68,11 @@ const Carousel = () => {
             </a>
           </div>
         </div>
-        <div className="relative h-56 overflow-hidden mt-4 rounded-lg md:h-96">
+        <div
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="relative h-56 overflow-hidden mt-4 rounded-lg md:h-96"
+        >
           {images.map((img, i) => (
             <div
               key={i}
@@ -82,7 +104,11 @@ const Carousel = () => {
 
         {/* Prev button */}
       </div>
-      <div className="space-y-4 w-3/4 mx-auto mt-10">
+      <div
+        data-aos="fade-up"
+        data-aos-delay="200"
+        className="space-y-4 w-3/4 mx-auto mt-10"
+      >
         <details
           className="group [&_summary::-webkit-details-marker]:hidden"
           open
@@ -116,7 +142,11 @@ const Carousel = () => {
           </p>
         </details>
 
-        <details className="group [&_summary::-webkit-details-marker]:hidden">
+        <details
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="group [&_summary::-webkit-details-marker]:hidden"
+        >
           <summary className="flex items-center justify-between gap-1.5 rounded-md border border-gray-100 bg-gray-50 p-4 text-gray-900">
             <h2 className="text-lg font-medium">
               Bagaimana cara mendaftar kursus coding?
@@ -148,7 +178,11 @@ const Carousel = () => {
           </p>
         </details>
 
-        <details className="group [&_summary::-webkit-details-marker]:hidden">
+        <details
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="group [&_summary::-webkit-details-marker]:hidden"
+        >
           <summary className="flex items-center justify-between gap-1.5 rounded-md border border-gray-100 bg-gray-50 p-4 text-gray-900">
             <h2 className="text-lg font-medium">
               Apa saja materi yang diajarkan di kursus coding?

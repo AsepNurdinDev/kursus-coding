@@ -1,4 +1,4 @@
-import Sidebar from '../../../components/Fragments/Sidebar';
+import Sidebar from '../../../components/Fragments/Sidebar/Sidebar';
 
 const kelashtml = () => {
   return (
