@@ -1,4 +1,6 @@
+// src/components/Header.jsx
 import { useState } from "react";
+import Profile from "../Profile/Profile";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
@@ -8,22 +10,16 @@ export default function Header() {
   const logoLink = token ? "/courses" : "/";
 
   const navItemsLoggedOut = ["Program", "Event", "Blog"];
-  const navItemsLoggedIn = [
-    "Kelas",
-    "Program",
-    "Diskusi",
-    "Event",
-    "Blog",
-    "Profile",
-  ];
+  const navItemsLoggedIn = ["Kelas", "Program", "Diskusi", "Event", "Blog"];
 
   const navItems = token ? navItemsLoggedIn : navItemsLoggedOut;
 
   const generatePath = (label) => {
     const lower = label.toLowerCase();
     if (lower === "kelas") return "/kelas";
-    if (lower === "program") return "/courses"; // misalnya program adalah courses
-    if (lower === "profile") return "/profile"; // pastikan kamu punya halaman ini
+    if (lower === "program") return "/program";
+    if (lower === "diskusi") return "/diskusi";
+    if (lower === "event") return "/event";
     return `/${lower}`;
   };
 
@@ -48,16 +44,9 @@ export default function Header() {
               </Link>
             ))}
 
+            {/* Jika login, tampilkan Profile */}
             {token ? (
-              <button
-                onClick={() => {
-                  localStorage.removeItem("token");
-                  window.location.href = "/login";
-                }}
-                className="ml-2 rounded-md bg-gray-800 px-4 py-2 text-sm text-white hover:bg-gray-900 transition"
-              >
-                Logout
-              </button>
+              <Profile />
             ) : (
               <>
                 <Link
@@ -102,7 +91,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden mt-2 space-y-2 pb-4">
+          <div className="md:hidden mt-2 delay-75 space-y-2 pb-4">
             {navItems.map((item) => (
               <Link
                 key={item}
@@ -113,18 +102,10 @@ export default function Header() {
               </Link>
             ))}
 
-            {/* Tombol Login / Register atau Logout */}
+            {/* Mobile: Tampilkan Profile jika login */}
             <div className="px-4 pt-2 flex flex-col gap-2">
               {token ? (
-                <button
-                  onClick={() => {
-                    localStorage.removeItem("token");
-                    window.location.href = "/login";
-                  }}
-                  className="hover:text-white bg-gray-800 rounded-md px-4 py-2 text-sm text-white hover:bg-gray-900 transition text-center"
-                >
-                  Logout
-                </button>
+                <Profile />
               ) : (
                 <>
                   <Link

@@ -9,6 +9,9 @@ import CoursesPage from "./pages/Courses/CoursesPage.jsx";
 import Kelas from "./pages/Courses/Kelas/index.jsx";
 import Kelashtml from "./pages/Courses/kelasHTML/index.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Program from "./pages/program/Program.jsx";
+import EventPage from "./pages/Events/Event.jsx";
+import Blog from "./pages/Blog/Blog.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,18 @@ const router = createBrowserRouter([
     element: <RegisterPage />,
   },
   {
+    path: "/program",
+    element: <Program />,
+  },
+  {
+    path: "/event",
+    element: <EventPage />,
+  },
+  {
+    path: "/blog",
+    element: <Blog />,
+  },
+  {
     path: "/courses",
     element: (
       <ProtectedRoute>
@@ -33,13 +48,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/kelas",
-    element: <Kelas />,
+    element: (
+      <ProtectedRoute>
+        <Kelas />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/kelashtml",
-    element: <Kelashtml />,
+    element: (
+      <ProtectedRoute>
+        <Kelashtml />
+      </ProtectedRoute>
+    ),
   },
-
 ]);
 
 createRoot(document.getElementById("root")).render(

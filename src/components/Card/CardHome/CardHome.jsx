@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import img1 from "/images/kursus3.png";
 import img2 from "/images/kursus4.png";
 import img3 from "/images/kursus2.png";
-import img4 from "/images/kursus31.jpg";
 import img5 from "/images/kursus3.png";
 
-const images = [img1, img2, img3, img4, img5];
+const images = [img1, img2, img3, img5];
 
 const Carousel = () => {
   const [index, setIndex] = useState(0);
@@ -108,10 +107,12 @@ const Carousel = () => {
           </summary>
 
           <p className="px-4 pt-4 text-gray-900">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-            veritatis molestias culpa in, recusandae laboriosam neque aliquid
-            libero nesciunt voluptate dicta quo officiis explicabo consequuntur
-            distinctio corporis earum similique!
+            Kursus coding adalah program pembelajaran yang dirancang untuk
+            membantu siapa saja—baik pemula maupun yang sudah
+            berpengalaman—untuk memahami dan menguasai bahasa pemrograman. Di
+            kursus ini, peserta akan belajar cara membuat aplikasi, website,
+            hingga sistem perangkat lunak dengan pendekatan yang terstruktur dan
+            mudah dipahami.
           </p>
         </details>
 
@@ -138,17 +139,19 @@ const Carousel = () => {
           </summary>
 
           <p className="px-4 pt-4 text-gray-900">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-            veritatis molestias culpa in, recusandae laboriosam neque aliquid
-            libero nesciunt voluptate dicta quo officiis explicabo consequuntur
-            distinctio corporis earum similique!
+            Mendaftar kursus coding sangat mudah. Cukup ikuti langkah berikut:
+            Buka halaman utama website kami. Klik tombol "Daftar" atau
+            "Register". Isi data diri seperti nama, email, dan password. Pilih
+            kursus yang ingin diikuti. Klik "Mulai Belajar" dan Anda siap untuk
+            mengikuti kelas coding! Jika Anda sudah memiliki akun, cukup login
+            dan langsung pilih kursus yang tersedia.
           </p>
         </details>
 
         <details className="group [&_summary::-webkit-details-marker]:hidden">
           <summary className="flex items-center justify-between gap-1.5 rounded-md border border-gray-100 bg-gray-50 p-4 text-gray-900">
             <h2 className="text-lg font-medium">
-              Apa saja materi yang diajarkan di kursus coding?  
+              Apa saja materi yang diajarkan di kursus coding?
             </h2>
 
             <svg
@@ -168,10 +171,16 @@ const Carousel = () => {
           </summary>
 
           <p className="px-4 pt-4 text-gray-900">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-            veritatis molestias culpa in, recusandae laboriosam neque aliquid
-            libero nesciunt voluptate dicta quo officiis explicabo consequuntur
-            distinctio corporis earum similique!
+            Materi yang diajarkan mencakup berbagai topik penting dalam dunia
+            pemrograman, antara lain: Dasar-dasar HTML, CSS, dan JavaScript –
+            Fondasi utama dalam pembuatan website. React.js & TailwindCSS –
+            Untuk membangun tampilan website yang modern dan responsif. Node.js
+            & Express.js – Untuk membuat backend atau logika server. MySQL &
+            Database Management – Untuk menyimpan dan mengelola data pengguna.
+            Project Akhir (Final Project) – Pembuatan aplikasi lengkap sebagai
+            bukti kompetensi. Setiap materi disusun secara bertahap, lengkap
+            dengan contoh, latihan, dan kuis untuk memastikan pemahaman yang
+            mendalam.
           </p>
         </details>
       </div>

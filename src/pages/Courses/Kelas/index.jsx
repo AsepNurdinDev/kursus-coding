@@ -4,7 +4,7 @@ import Navbar from "../../../components/Fragments/Navbar/Navbar";
 
 const Kelas = () => {
   return (
-    <div>
+    <div className="mt-28">
       <Navbar />
       <CardsKelas />
       <Footer />

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const FormLogin = () => {
-  const navigate = useNavigate(); // ✅ di dalam komponen
+  const navigate = useNavigate(); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,7 +19,7 @@ const FormLogin = () => {
     const data = await res.json();
     if (res.ok) {
       localStorage.setItem("token", data.token);
-      navigate("/courses"); // ✅ navigasi setelah login
+      navigate("/courses"); 
     } else {
       alert(data.msg);
     }
