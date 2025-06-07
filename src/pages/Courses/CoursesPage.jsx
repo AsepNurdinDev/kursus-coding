@@ -2,7 +2,16 @@ import Button from "../../components/Elements/Button";
 import Navbar from "../../components/Fragments/Navbar/Navbar";
 import CardsKelas from "../../components/Card/CardsKelas/CardsKelas";
 import Footer from "../../components/Fragments/Footer/Footer";
-import Profile from "../../components/Fragments/Profile/Profile";
+
+const kelas = [
+  { nama: "HTML", deskripsi: "Belajar HTML dari dasar.", path: "/kelas/html" },
+  { nama: "CSS", deskripsi: "Styling dengan CSS.", path: "/kelas/css" },
+  {
+    nama: "JavaScript",
+    deskripsi: "Kuasai JavaScript.",
+    path: "/kelas/javascript",
+  },
+];
 
 const CoursesPage = () => {
   return (

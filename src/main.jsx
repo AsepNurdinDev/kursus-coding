@@ -12,6 +12,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Program from "./pages/program/Program.jsx";
 import EventPage from "./pages/Events/Event.jsx";
 import Blog from "./pages/Blog/Blog.jsx";
+import Kelascss from "./pages/Courses/kelasCSS/Kelascss.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -59,6 +61,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Kelashtml />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/kelascss",
+    element: (
+      <ProtectedRoute>
+        <Kelascss />
       </ProtectedRoute>
     ),
   },

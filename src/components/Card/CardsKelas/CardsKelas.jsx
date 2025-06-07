@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../../Elements/Button";
+import { Link } from "react-router-dom";
 
 export default function CardsKelas() {
   const [showAll, setShowAll] = useState(false);
@@ -10,30 +11,35 @@ export default function CardsKelas() {
       role: "Web Developer",
       img: "/images/potokelas/html.png",
       title: "HTML dasar untuk web",
+      path: "/kelashtml",
     },
     {
       name: "CSS",
       role: "Web Developer",
       img: "/images/potokelas/css.png",
       title: "CSS dasar styling web",
+      path: "/kelascss",
     },
     {
       name: "JavaScript",
       role: "Web Developer",
       img: "/images/potokelas/javascript.png",
       title: "Dasar JS untuk logika web",
+      path: "/kelasjavascript",
     },
     {
       name: "PHP",
       role: "Web Developer",
       img: "/images/potokelas/php.png",
       title: "PHP backend dasar",
+      path: "/kelasphp",
     },
     {
       name: "ReactJS",
       role: "Web Developer",
       img: "/images/potokelas/reactjs.png",
       title: "Belajar React",
+      path: "/kelasreact",
     },
     {
       name: "Laravel",
@@ -113,7 +119,7 @@ export default function CardsKelas() {
               <h3 className="text-lg font-bold text-gray-800">{card.name}</h3>
               <p className="text-sm text-gray-600 mt-1">{card.title}</p>
               <Button className="mt-3 bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 px-4 rounded-md">
-                <a href="/kelashtml ">Mulai Belajar</a>
+                <Link to={card.path}>Mulai Belajar</Link>
               </Button>
             </div>
           </div>
