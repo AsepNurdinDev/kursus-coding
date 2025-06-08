@@ -1,9 +1,11 @@
-import React from "react"; 
+import React from "react";
 
 function Kelascss() {
-  return <div>
-    
-  </div>;
+  return (
+    <div>
+      <h1>Selamat datang di kelas CSS</h1>
+    </div>
+  );
 }
 
 export default Kelascss;
