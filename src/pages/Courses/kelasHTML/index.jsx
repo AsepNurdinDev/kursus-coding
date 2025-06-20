@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { useState } from "react";
 
-import SidebarMateri from '../../../components/Fragments/SidebarKelas/index.jsx';
+import SidebarMateri from "../../../components/Fragments/SidebarKelas/index.jsx";
 export default function KelasHTML() {
   const [selectedMateri, setSelectedMateri] = useState(
     "Pilih materi di sebelah kiri."
@@ -9,13 +9,12 @@ export default function KelasHTML() {
 
   const isiMateri = {
     "Apa itu HTML?":
-      "HTML (HyperText Markup Language) adalah bahasa markah yang digunakan untuk membuat struktur halaman web.",
+      "HTML adalah singkatan dari HyperText Markup Language, yaitu bahasa markup standar yang digunakan untuk membuat dan menyusun halaman web. HTML bukan bahasa pemrograman, melainkan bahasa penanda (markup) yang digunakan untuk menentukan struktur dan isi dari sebuah dokumen web.  Siapa Penemu HTML dan Kapan Diciptakan?",
     "Struktur Dasar HTML": `Struktur dasar HTML terdiri dari tag <!DOCTYPE html>, <html>, <head>, dan <body>.`,
     "Tag & Atribut":
       "Tag HTML menandai elemen, sedangkan atribut memberikan informasi tambahan seperti class, id, src, dan lainnya.",
     Heading: "Tag heading digunakan untuk judul, seperti <h1> sampai <h6>.",
     Paragraf: "Tag <p> digunakan untuk membuat paragraf.",
-    // Tambahkan semua sub materi lain dengan isi masing-masing...
   };
 
   return (
